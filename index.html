@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 </head>
+
 <body class="container mx-auto">
-    <nav class="flex gap-72 justify-around my-6">
+    <nav class="flex justify-around my-6">
         <div>
             <img src="./Logo.png" alt="">
         </div>
@@ -23,9 +25,22 @@
                 <a href="./blog.html">Blog </a>
             </button>
         </div>
+
     </nav>
-    <hr>
+        <hr class="w-10/12 mx-auto">
 
     <script src="./js/tube.js"></script>
+
+    <div class="tabs flex justify-center gap-4 my-6 ml-16">
+        <a id="all-btn" class="tab btn normal-case">All</a>
+        <a class="tab btn normal-case">Music</a>
+        <a class="tab btn normal-case">Comedy</a>
+        <a class="tab btn normal-case">Drawing</a>
+    </div>
+
+    <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto">
+
+    </div>
 </body>
+
 </html>
