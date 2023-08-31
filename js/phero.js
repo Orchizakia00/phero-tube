@@ -25,27 +25,27 @@ const handleLoadVideos = async (categoryId) => {
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML='';
 
-    videos.forEach(card =>{
-        const tubeCard = document.createElement('div');
-        tubeCard.innerHTML=`
+    videos.forEach(video =>{
+        const videoCard = document.createElement('div');
+        videoCard.innerHTML=`
         <div class="card card-compact bg-base-100 shadow-xl w-72 h-64">
-        <figure><img src="${card.thumbnail}" alt="Shoes" width="312px" height="200px"/></figure>
+        <figure><img src="${video.thumbnail}" alt="Shoes" width="312px" height="200px"/></figure>
         <div class="card-body flex flex-row">
             <div class="w-10 h-10">
-                <img src="${card.authors[0].profile_picture}" class="rounded-full mt-2" alt="Shoes"/>
+                <img src="${video.authors[0].profile_picture}" class="rounded-full mt-2" alt="Shoes"/>
             </div>
             <div>
-                <h2 class="card-title">${card.title}</h2>
-                    <p>${card.authors[0].profile_name} 
-                        <span>${card.authors[0]?.verified} 
+                <h2 class="card-title">${video.title}</h2>
+                    <p>${video.authors[0].profile_name} 
+                        <span>${video.authors[0]?.verified} 
                         
                         </span>
                     </p>
-                    <p>${card.others.views}</p>
+                    <p>${video.others.views}</p>
             </div>
       </div>
         `;
-        cardContainer.appendChild(tubeCard);
+        cardContainer.appendChild(videoCard);
     });
 }
 
