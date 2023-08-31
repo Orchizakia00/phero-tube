@@ -1,4 +1,5 @@
-const allButton = document.addEventListener('click', () => { handleAllButton() });
+const allButton = document.getElementById('all-btn').addEventListener('click', () => { handleAllButton() });
+const musicButton = document.getElementById('music-btn').addEventListener('click', () => { handleMusicButton() });
 
 const handleAllButton = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/videos/category/1000');
@@ -15,19 +16,27 @@ const displayCard = (cards) =>{
     cards.forEach(card =>{
         const tubeCard = document.createElement('div');
         tubeCard.innerHTML=`
-        <div class="card card-compact bg-base-100 shadow-xl">
+        <div class="card card-compact bg-base-100 shadow-xl w-72 h-64">
         <figure><img src="${card.thumbnail}" alt="Shoes" width="312px" height="200px"/></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
+        <div class="card-body flex flex-row">
+            <div class="w-10 h-10">
+                <img src="${card.authors[0].profile_picture}" class="rounded-full mt-2" alt="Shoes"/>
+            </div>
+            <div>
+                <h2 class="card-title">${card.title}</h2>
+                    <p>${card.authors[0].profile_name} 
+                        <span>${card.authors[0]?.verified} 
+                        
+                        </span>
+                    </p>
+                    <p>${card.others.views}</p>
+            </div>
       </div>
         `;
         cardContainer.appendChild(tubeCard);
     })
 }
+
+
 
 handleAllButton();
