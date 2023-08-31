@@ -22,10 +22,13 @@ const handleLoadVideos = async (categoryId) => {
     const videos = data.data;
     console.log(videos);
 
+    const emptyContainer = document.getElementById('empty-container');
+
     if(videos.length === 0){
-        // console.log('no videos');
-        const emptyContainer = document.getElementById('empty-container');
         emptyContainer.classList.remove('hidden');
+    }
+    else{
+        emptyContainer.classList.add('hidden');
     }
 
     const cardContainer = document.getElementById('card-container');
