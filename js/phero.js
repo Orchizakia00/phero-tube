@@ -22,6 +22,12 @@ const handleLoadVideos = async (categoryId) => {
     const videos = data.data;
     console.log(videos);
 
+    if(videos.length === 0){
+        // console.log('no videos');
+        const emptyContainer = document.getElementById('empty-container');
+        emptyContainer.classList.remove('hidden');
+    }
+
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML='';
 
@@ -51,3 +57,4 @@ const handleLoadVideos = async (categoryId) => {
 
 
 handleCategory();
+handleLoadVideos(1000);
