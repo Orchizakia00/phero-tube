@@ -1,15 +1,15 @@
-const allButton = document.getElementById('all-btn').addEventListener('click', () => { handleAllButton() });
-const musicButton = document.getElementById('music-btn').addEventListener('click', () => { handleMusicButton() });
+const allButton = document.addEventListener('click', () => { handleAllButton() });
+// const musicButton = document.getElementById('music-btn').addEventListener('click', () => { handleMusicButton() });
 
 const handleAllButton = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/videos/category/1000');
     const data = await res.json();
     const cards = data.data;
     console.log(cards);
-    displayCard(cards);
+    displayAllCard(cards);
 }
 
-const displayCard = (cards) =>{
+const displayAllCard = (cards) =>{
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML='';
 
@@ -37,6 +37,17 @@ const displayCard = (cards) =>{
     })
 }
 
+const handleMusicButton = async (categoryId) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/videos/${categoryId}`);
+    const data = await res.json();
+    const musicCards = data;
+    console.log(musicCards);
+    // displayCard(cards);
+}
+
+const displayMusicCard = () =>{
+
+}
 
 
 handleAllButton();
