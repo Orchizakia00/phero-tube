@@ -3,7 +3,6 @@ const handleCategory = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await res.json();
     const categories = data.data;
-    // console.log(categories);
 
     const tabContainer = document.getElementById('tab-container');
     categories.forEach((category) => {
@@ -17,11 +16,9 @@ const handleCategory = async () => {
 };
 
 const handleLoadVideos = async (categoryId) => {
-    // console.log(categoryId);
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await res.json();
     const videos = data.data;
-    // console.log(videos);
 
     const emptyContainer = document.getElementById('empty-container');
 
@@ -55,34 +52,27 @@ const handleLoadVideos = async (categoryId) => {
       </div>
         `;
         cardContainer.appendChild(videoCard);
-
-        // handleSort(videos);
     });
+    
+    document.getElementById('sort-btn').addEventListener('click', () => { handleSort(videos, categoryId) });
 
-    document.getElementById('sort-btn').addEventListener('click', () => { handleSort(videos) });
 }
-const handleSort = (videos) => {
-    console.log(videos);
-    // const views = videos.others.views;
-    // console.log(views);
-    // console.log('btn sort');
+
+const handleSort = (videos, categoryId) => {
 
     const viewsArray = [];
 
     videos.forEach(video => {
         const views = video.others.views;
-        // console.log(views);
         viewsArray.push(views);
     });
-
-    console.log(viewsArray);
 
     const convertViews = (viewsArrayString) => {
         const viewNum = parseFloat(viewsArrayString);
 
         if (viewsArrayString.includes('K')) {
             return viewNum * 1000;
-        } 
+        }
         else {
             return viewNum;
         }
@@ -90,19 +80,15 @@ const handleSort = (videos) => {
 
     const viewsArrayNum = viewsArray.map(convertViews);
 
-    console.log(viewsArrayNum);
-
     // sorting
     const sortedViews = viewsArrayNum.sort((a, b) => b - a);
-
     console.log(sortedViews);
 
+    handleLoadVideos(categoryId);
+    
 
 }
 
 
 handleCategory();
 handleLoadVideos(1000);
-
-// 
-
