@@ -59,51 +59,54 @@
         </div>
         <h1 class=" text-xl font-medium collapse-title my-8">
             Discuss the scope of var, let, and const
-        </h1>   
+        </h1>
         <div class="overflow-x-auto">
             <table class="table">
-              <!-- head -->
-              <thead>
-                <tr class="text-lg">
-                  <th>var</th>
-                  <th>let</th>
-                  <th>const</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- row 1 -->
-                <tr>
-                  <td>The scope of a var variable is functional scope.</td>
-                  <td>The scope of a let variable is block scope.</td>
-                  <td>The scope of a const variable is block scope.</td>
-                </tr>
-                <!-- row 2 -->
-                <tr>
-                  <td>It can be updated and re-declared into the scope.</td>
-                  <td>It can be updated but cannot be re-declared into the scope.</td>
-                  <td>It cannot be updated or re-declared into the scope.</td>
-                </tr>
-                <!-- row 3 -->
-                <tr>
-                  <td>It can be declared without initialization.</td>
-                  <td>It can be declared without initialization.</td>
-                  <td>It cannot be declared without initialization.</td>
-                </tr>
-                <!-- row 4 -->
-                <tr>
-                  <td>hoisting done, with initializing as ‘default’ value</td>
-                  <td>Hoisting is done, but not initialized (this is the reason for the error when we access the let variable before declaration/initialization</td>
-                  <td>Hoisting is done, but not initialized (this is the reason for the error when we access the const variable before declaration/initialization</td>
-                </tr>
-                <!-- row 5 -->
-                <tr>
-                  <td>It can be accessed without initialization as its default value is “undefined”.</td>
-                  <td>It cannot be accessed without initialization otherwise it will give ‘referenceError’.</td>
-                  <td>It cannot be accessed without initialization, as it cannot be declared without initialization.</td>
-                </tr>
-              </tbody>
+                <!-- head -->
+                <thead>
+                    <tr class="text-lg">
+                        <th>var</th>
+                        <th>let</th>
+                        <th>const</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- row 1 -->
+                    <tr>
+                        <td>The scope of a var variable is functional scope.</td>
+                        <td>The scope of a let variable is block scope.</td>
+                        <td>The scope of a const variable is block scope.</td>
+                    </tr>
+                    <!-- row 2 -->
+                    <tr>
+                        <td>It can be updated and re-declared into the scope.</td>
+                        <td>It can be updated but cannot be re-declared into the scope.</td>
+                        <td>It cannot be updated or re-declared into the scope.</td>
+                    </tr>
+                    <!-- row 3 -->
+                    <tr>
+                        <td>It can be declared without initialization.</td>
+                        <td>It can be declared without initialization.</td>
+                        <td>It cannot be declared without initialization.</td>
+                    </tr>
+                    <!-- row 4 -->
+                    <tr>
+                        <td>hoisting done, with initializing as ‘default’ value</td>
+                        <td>Hoisting is done, but not initialized (this is the reason for the error when we access the
+                            let variable before declaration/initialization</td>
+                        <td>Hoisting is done, but not initialized (this is the reason for the error when we access the
+                            const variable before declaration/initialization</td>
+                    </tr>
+                    <!-- row 5 -->
+                    <tr>
+                        <td>It can be accessed without initialization as its default value is “undefined”.</td>
+                        <td>It cannot be accessed without initialization otherwise it will give ‘referenceError’.</td>
+                        <td>It cannot be accessed without initialization, as it cannot be declared without
+                            initialization.</td>
+                    </tr>
+                </tbody>
             </table>
-          </div>
+        </div>
     </section>
 
 </body>

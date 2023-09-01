@@ -3,7 +3,7 @@ const handleCategory = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await res.json();
     const categories = data.data;
-    console.log(categories);
+    // console.log(categories);
 
     const tabContainer = document.getElementById('tab-container');
     categories.forEach((category) => {
@@ -13,6 +13,7 @@ const handleCategory = async () => {
         `;
         tabContainer.appendChild(div);
     });
+
 };
 
 const handleLoadVideos = async (categoryId) => {
@@ -20,44 +21,69 @@ const handleLoadVideos = async (categoryId) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await res.json();
     const videos = data.data;
-    console.log(videos);
+    // console.log(videos);
 
     const emptyContainer = document.getElementById('empty-container');
 
-    if(videos.length === 0){
+    if (videos.length === 0) {
         emptyContainer.classList.remove('hidden');
     }
-    else{
+    else {
         emptyContainer.classList.add('hidden');
     }
 
     const cardContainer = document.getElementById('card-container');
-    cardContainer.innerHTML='';
+    cardContainer.innerHTML = '';
 
-    videos.forEach(video =>{
+    videos.forEach(video => {
         const videoCard = document.createElement('div');
-        videoCard.innerHTML=`
+        videoCard.innerHTML = `
         <div class="card card-compact bg-base-100 shadow-xl w-72 h-64">
         <figure><img src="${video.thumbnail}" alt="Shoes" width="312px" height="200px"/></figure>
         <div class="card-body flex flex-row">
             <div class="w-10 h-10">
-                <img src="${video.authors[0].profile_picture}" class="rounded-full mt-2" alt="Shoes"/>
+                <img src="${video.authors[0].profile_picture}" class="rounded-full mt-2"/>
             </div>
             <div>
                 <h2 class="card-title">${video.title}</h2>
-                    <p>${video.authors[0].profile_name} 
-                        <span>${video.authors[0]?.verified} 
-                        
-                        </span>
-                    </p>
+                    <div class="flex">
+                        <p class="inline-block">${video.authors[0].profile_name} </p>
+                        <p class="mt-1 mr-20"> ${video.authors[0].verified ? '<img src="verified.svg" alt="Verified" width="14px" height="14px">' : ''} </p>
+                    </div>
                     <p>${video.others.views}</p>
             </div>
       </div>
         `;
         cardContainer.appendChild(videoCard);
+
+        // handleSort(videos);
     });
+
+    document.getElementById('sort-btn').addEventListener('click', () => { handleSort(videos) });
+}
+const handleSort = (videos) => {
+    console.log(videos);
+    // const views = videos.others.views;
+    // console.log(views);
+    // console.log('btn sort');
+
+    const viewsArray = [];
+
+    videos.forEach(video => {
+        const views = video.others.views;
+        // console.log(views);
+        viewsArray.push(views);
+        const sortedViews = viewsArray.sort((a, b) => a - b);
+
+        console.log(sortedViews);
+    });
+    console.log(viewsArray);
+
 }
 
 
 handleCategory();
 handleLoadVideos(1000);
+
+// 
+
