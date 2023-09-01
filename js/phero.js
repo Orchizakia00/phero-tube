@@ -38,7 +38,7 @@ const handleLoadVideos = async (categoryId) => {
         <div class="card card-compact bg-base-100 shadow-xl w-72 h-64">
         <figure><img src="${video.thumbnail}" alt="Shoes" width="312px" height="200px"/>
         <div class="absolute">
-            <p class="absolute top-14 left-20 right-10 pr-10 px-2 bg-black rounded-xl text-white text-xs">${video?.others?.posted_date}</>
+            <p class="absolute top-14 left-1 right-0 pr-1 mx-20 bg-black rounded-xl text-white text-xs">${handleTime(video?.others?.posted_date)}</>
         <div>
         </figure>
         <div class="card-body flex flex-row">
@@ -94,8 +94,21 @@ const handleSort = (videos) => {
     });
 };
 
-const handleTime = () => {
+const handleTime = (seconds) => {
+    const hours = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
 
+    let convertedTime = '';
+
+    if (hours > 0) {
+        convertedTime = convertedTime + hours + 'hrs';
+    }
+
+    if (mins > 0) {
+        convertedTime = convertedTime +  mins + 'mins';
+    }
+
+    return convertedTime;
 }
 
 
