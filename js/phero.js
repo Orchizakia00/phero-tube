@@ -36,6 +36,45 @@ const handleLoadVideos = async (categoryId) => {
         const videoCard = document.createElement('div');
         videoCard.innerHTML = `
         <div class="card card-compact bg-base-100 shadow-xl w-72 h-64">
+        <figure><img src="${video.thumbnail}" alt="Shoes" width="312px" height="200px"/>
+        <div class="absolute">
+            <p class="absolute top-14 left-20 right-10 pr-10 px-2 bg-black rounded-xl text-white text-xs">${video?.others?.posted_date}</>
+        <div>
+        </figure>
+        <div class="card-body flex flex-row">
+            <div class="w-10 h-10">
+                <img src="${video.authors[0].profile_picture}" class="rounded-full mt-2 w-10 h-10"/>
+            </div>
+            <div>
+                <h2 class="card-title">${video.title}</h2>
+                    <div class="flex">
+                        <p class="inline-block pr-2">${video.authors[0].profile_name} </p>
+                        <p class="mt-1 mr-24"> ${video.authors[0].verified ? '<img src="verified.svg" alt="Verified" width="14px" height="14px">' : ''} </p>
+                    </div>
+                    <p>${video.others.views}</p>
+            </div>
+      </div>
+        `;
+        cardContainer.appendChild(videoCard);
+    });
+
+    document.getElementById('sort-btn').addEventListener('click', () => { handleSort(videos) });
+}
+
+const handleSort = (videos) => {
+    videos.sort((a, b) => {
+        const viewsA = parseFloat(a.others.views.replace('K', '')) * 1000;
+        const viewsB = parseFloat(b.others.views.replace('K', '')) * 1000;
+        return viewsB - viewsA;
+    });
+
+    const cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = '';
+
+    videos.forEach((video) => {
+        const videoCard = document.createElement('div');
+        videoCard.innerHTML = `
+        <div class="card card-compact bg-base-100 shadow-xl w-72 h-64">
         <figure><img src="${video.thumbnail}" alt="Shoes" width="312px" height="200px"/></figure>
         <div class="card-body flex flex-row">
             <div class="w-10 h-10">
@@ -53,39 +92,9 @@ const handleLoadVideos = async (categoryId) => {
         `;
         cardContainer.appendChild(videoCard);
     });
-    
-    document.getElementById('sort-btn').addEventListener('click', () => { handleSort(videos, categoryId) });
+};
 
-}
-
-const handleSort = (videos, categoryId) => {
-
-    const viewsArray = [];
-
-    videos.forEach(video => {
-        const views = video.others.views;
-        viewsArray.push(views);
-    });
-
-    const convertViews = (viewsArrayString) => {
-        const viewNum = parseFloat(viewsArrayString);
-
-        if (viewsArrayString.includes('K')) {
-            return viewNum * 1000;
-        }
-        else {
-            return viewNum;
-        }
-    };
-
-    const viewsArrayNum = viewsArray.map(convertViews);
-
-    // sorting
-    const sortedViews = viewsArrayNum.sort((a, b) => b - a);
-    console.log(sortedViews);
-
-    handleLoadVideos(categoryId);
-    
+const handleTime = () => {
 
 }
 
