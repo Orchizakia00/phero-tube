@@ -37,18 +37,17 @@ const handleLoadVideos = async (categoryId) => {
         videoCard.innerHTML = `
         <div class="card card-compact bg-base-100 shadow-xl w-72 h-64">
         <figure><img src="${video.thumbnail}" alt="Shoes" width="312px" height="200px"/>
-        <div class="absolute">
-            <p class="absolute top-14 left-1 right-0 pr-1 mx-20 bg-black rounded-xl text-white text-xs">${handleTime(video?.others?.posted_date)}</>
-        <div>
+            <p class="absolute flex justify-center md:top-20 lg:top-32 lg:left-48 pl-1 bg-black rounded-xl text-white text-xs w-24">
+                ${handleTime(video?.others?.posted_date)}</p>
         </figure>
         <div class="card-body flex flex-row">
             <div class="w-10 h-10">
                 <img src="${video.authors[0].profile_picture}" class="rounded-full mt-2 w-10 h-10"/>
             </div>
             <div>
-                <h2 class="card-title">${video.title}</h2>
+                <h2 class="card-title text-xl">${video.title}</h2>
                     <div class="flex">
-                        <p class="inline-block pr-2">${video.authors[0].profile_name} </p>
+                        <p class="pr-2 text-xs">${video.authors[0].profile_name} </p>
                         <p class="mt-1 mr-24"> ${video.authors[0].verified ? '<img src="verified.svg" alt="Verified" width="14px" height="14px">' : ''} </p>
                     </div>
                     <p>${video.others.views}</p>
@@ -101,11 +100,11 @@ const handleTime = (seconds) => {
     let convertedTime = '';
 
     if (hours > 0) {
-        convertedTime = convertedTime + hours + 'hrs';
+        convertedTime = convertedTime + hours + 'hrs ';
     }
 
     if (mins > 0) {
-        convertedTime = convertedTime +  mins + 'mins';
+        convertedTime = convertedTime +  mins + 'mins ago';
     }
 
     return convertedTime;
