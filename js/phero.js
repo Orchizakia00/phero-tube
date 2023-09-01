@@ -42,13 +42,13 @@ const handleLoadVideos = async (categoryId) => {
         <figure><img src="${video.thumbnail}" alt="Shoes" width="312px" height="200px"/></figure>
         <div class="card-body flex flex-row">
             <div class="w-10 h-10">
-                <img src="${video.authors[0].profile_picture}" class="rounded-full mt-2"/>
+                <img src="${video.authors[0].profile_picture}" class="rounded-full mt-2 w-10 h-10"/>
             </div>
             <div>
                 <h2 class="card-title">${video.title}</h2>
                     <div class="flex">
-                        <p class="inline-block">${video.authors[0].profile_name} </p>
-                        <p class="mt-1 mr-20"> ${video.authors[0].verified ? '<img src="verified.svg" alt="Verified" width="14px" height="14px">' : ''} </p>
+                        <p class="inline-block pr-2">${video.authors[0].profile_name} </p>
+                        <p class="mt-1 mr-24"> ${video.authors[0].verified ? '<img src="verified.svg" alt="Verified" width="14px" height="14px">' : ''} </p>
                     </div>
                     <p>${video.others.views}</p>
             </div>
@@ -73,11 +73,30 @@ const handleSort = (videos) => {
         const views = video.others.views;
         // console.log(views);
         viewsArray.push(views);
-        const sortedViews = viewsArray.sort((a, b) => a - b);
-
-        console.log(sortedViews);
     });
+
     console.log(viewsArray);
+
+    const convertViews = (viewsArrayString) => {
+        const viewNum = parseFloat(viewsArrayString);
+
+        if (viewsArrayString.includes('K')) {
+            return viewNum * 1000;
+        } 
+        else {
+            return viewNum;
+        }
+    };
+
+    const viewsArrayNum = viewsArray.map(convertViews);
+
+    console.log(viewsArrayNum);
+
+    // sorting
+    const sortedViews = viewsArrayNum.sort((a, b) => b - a);
+
+    console.log(sortedViews);
+
 
 }
 
