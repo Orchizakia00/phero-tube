@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
     <nav class="flex justify-around my-6 gap-20">
         <div>
@@ -20,6 +22,90 @@
 
     </nav>
     <hr class="w-10/12 mx-auto">
-    
+
+    <section class="container w-9/12 mx-auto my-20">
+        <h1 class="text-3xl font-bold mb-5">Blog Questions</h1>
+
+        <div class="collapse collapse-arrow bg-base-200">
+            <input type="radio" name="my-accordion-2" checked="checked" />
+            <div class="collapse-title text-xl font-medium">
+                Tell us the use cases of null and undefined
+            </div>
+            <div class="collapse-content">
+                <p>
+                    A variable is undefined when you haven't assigned any value yet, not even a null.
+                    A null means the absence of a value. You assign a null to a variable with the intention that
+                    currently this variable does not have any value but it will have later on. It is like a placeholder
+                    for a value. The type of null is the object. Simply in JavaScript, null is treated as an object.The
+                    typeof operator determines the type of variables and values. When the typeof operator is used to
+                    determine the undefined value, it returns undefined.
+            </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200">
+            <input type="radio" name="my-accordion-2" />
+            <div class="collapse-title text-xl font-medium">
+                What do you mean by REST API?
+            </div>
+            <div class="collapse-content">
+                <p>
+                    Representational State Transfer (REST) is an architectural style that defines a set of constraints
+                    to be used for creating web services. REST API is a way of accessing web services in a simple and
+                    flexible way without having any processing. REST technology is generally preferred to the more
+                    robust Simple Object Access Protocol (SOAP) technology because REST uses less bandwidth, simple and
+                    flexible making it more suitable for internet usage. It’s used to fetch or give some information
+                    from a web service. All communication done via REST API uses only HTTP request.
+                </p>
+            </div>
+        </div>
+        <h1 class=" text-xl font-medium collapse-title my-8">
+            Discuss the scope of var, let, and const
+        </h1>   
+        <div class="overflow-x-auto">
+            <table class="table">
+              <!-- head -->
+              <thead>
+                <tr class="text-lg">
+                  <th>var</th>
+                  <th>let</th>
+                  <th>const</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- row 1 -->
+                <tr>
+                  <td>The scope of a var variable is functional scope.</td>
+                  <td>The scope of a let variable is block scope.</td>
+                  <td>The scope of a const variable is block scope.</td>
+                </tr>
+                <!-- row 2 -->
+                <tr>
+                  <td>It can be updated and re-declared into the scope.</td>
+                  <td>It can be updated but cannot be re-declared into the scope.</td>
+                  <td>It cannot be updated or re-declared into the scope.</td>
+                </tr>
+                <!-- row 3 -->
+                <tr>
+                  <td>It can be declared without initialization.</td>
+                  <td>It can be declared without initialization.</td>
+                  <td>It cannot be declared without initialization.</td>
+                </tr>
+                <!-- row 4 -->
+                <tr>
+                  <td>hoisting done, with initializing as ‘default’ value</td>
+                  <td>Hoisting is done, but not initialized (this is the reason for the error when we access the let variable before declaration/initialization</td>
+                  <td>Hoisting is done, but not initialized (this is the reason for the error when we access the const variable before declaration/initialization</td>
+                </tr>
+                <!-- row 5 -->
+                <tr>
+                  <td>It can be accessed without initialization as its default value is “undefined”.</td>
+                  <td>It cannot be accessed without initialization otherwise it will give ‘referenceError’.</td>
+                  <td>It cannot be accessed without initialization, as it cannot be declared without initialization.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </section>
+
 </body>
+
 </html>
