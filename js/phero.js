@@ -37,7 +37,7 @@ const handleLoadVideos = async (categoryId) => {
         videoCard.innerHTML = `
         <div class="card card-compact bg-base-100 shadow-xl w-72 h-64">
         <figure><img src="${video.thumbnail}" alt="Shoes" width="312px" height="200px"/>
-            <p class="absolute inline-block top-32 left-44 md:top-32 lg:top-32 lg:left-40 px-1 bg-black rounded-xl text-white text-xs w-max">
+            <p class="absolute inline-block top-32 left-40 md:top-32 lg:top-32 lg:left-40 px-1 bg-black rounded-xl text-white text-xs w-max">
                 ${handleTime(video?.others?.posted_date)}</p>
         </figure>
         <div class="card-body flex flex-row">
@@ -75,8 +75,8 @@ const handleSort = (videos) => {
         videoCard.innerHTML = `
         <div class="card card-compact bg-base-100 shadow-xl w-72 h-64">
         <figure><img src="${video.thumbnail}" alt="Shoes" width="312px" height="200px"/>
-            <p class="absolute inline-block top-32 left-44 md:top-32 lg:top-32 lg:left-44 px-1 bg-black rounded-xl text-white text-xs w-max">
-            ${handleTime(video?.others?.posted_date)}</p>
+            <p class="absolute inline-block top-32 left-40 md:top-32 lg:top-32 lg:left-40 px-1 bg-black rounded-xl text-white text-xs w-max">
+                ${handleTime(video?.others?.posted_date)}</p>
         </figure>
         <div class="card-body flex flex-row">
             <div class="w-10 h-10">
