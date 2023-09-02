@@ -75,7 +75,7 @@ const handleSort = (videos) => {
         videoCard.innerHTML = `
         <div class="card card-compact bg-base-100 shadow-xl w-72 h-64">
         <figure><img src="${video.thumbnail}" alt="Shoes" width="312px" height="200px"/>
-            <p class="absolute flex justify-center top-32 left-44 md:top-32 lg:top-32 lg:left-44 pl-1 bg-black rounded-xl text-white text-xs w-24">
+            <p class="absolute top-32 left-44 px-4 inline-block md:top-32 lg:top-32 lg:left-44 bg-black rounded-xl text-white text-xs w-24">
                 ${handleTime(video?.others?.posted_date)}</p>
         </figure>
         <div class="card-body flex flex-row">
